@@ -1,5 +1,5 @@
 vazio = " "
-xOrO = ["X", "O"]
+XorO = ["X", "O"]
 
 def criaBoard():
     board = [
@@ -35,7 +35,7 @@ def verificaMovimento(board, i , j):
         return False
 
 def fazMovimento(board, i, j, jogador):
-    board[i][j] = xOrO[jogador]
+    board[i][j] = XorO[jogador]
 
 def verificaGanhador(board):
     for i in range(3):

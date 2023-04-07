@@ -4,8 +4,9 @@ def movimentoIA(board, jogador):
     possibilidades = getPosicoes(board)
     melhor_valor = None
     melhor_movimento = None
+    
     for possibilidade in possibilidades:
-        board[possibilidade[0]][possibilidade[1]] = xOrO[jogador]
+        board[possibilidade[0]][possibilidade[1]] = XorO[jogador]
         valor = minimax(board, jogador)
         board[possibilidade[0]][possibilidade[1]] = vazio
         if(melhor_valor is None):
@@ -27,8 +28,7 @@ def getPosicoes(board):
     for i in range(3):
         for j in range(3):
             if(board[i][j] == vazio):
-                posicoes.append([i, j])
-    
+                posicoes.append([i, j]) 
     return posicoes
 
 score = {
@@ -46,10 +46,9 @@ def minimax(board, jogador):
     possibilidades = getPosicoes(board)
     melhor_valor = None
     for possibilidade in possibilidades:
-        board[possibilidade[0]][possibilidade[1]] = xOrO[jogador]
+        board[possibilidade[0]][possibilidade[1]] = XorO[jogador]
         valor = minimax(board, jogador)
         board[possibilidade[0]][possibilidade[1]] = vazio
-
         if(melhor_valor is None):
             melhor_valor = valor
         elif(jogador == 0):
@@ -58,5 +57,4 @@ def minimax(board, jogador):
         elif(jogador == 1):
             if(valor < melhor_valor):
                 melhor_valor = valor
-
     return melhor_valor
